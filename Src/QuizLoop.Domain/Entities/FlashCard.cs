@@ -1,7 +1,6 @@
 ﻿using QuizLoop.Domain.Consts;
 using QuizLoop.Domain.ValueObjects.FlashCard;
 using QuizLoop.Domain.ValueObjects.Shared;
-using System.ComponentModel;
 
 namespace QuizLoop.Domain.Entities
 {
@@ -12,7 +11,5 @@ namespace QuizLoop.Domain.Entities
         public FlashCardAnswer Answer { get; }
         public DifficultyEnum Difficulty { get; private set; }
         public Category Category { get; private set; }
-
-
     }
 }

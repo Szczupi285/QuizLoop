@@ -1,10 +1,4 @@
 ﻿using QuizLoop.Domain.Exceptions.Shared;
-using QuizLoop.Domain.ValueObjects.Shared;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuizLoop.Domain.ValueObjects.FlashCard
 {
@@ -17,7 +11,7 @@ namespace QuizLoop.Domain.ValueObjects.FlashCard
         {
             if (string.IsNullOrEmpty(value))
                 throw new ContentNullException(typeof(FlashCardQuestion));
-            else if(value.Length > MaxLen)
+            else if (value.Length > MaxLen)
                 throw new InvalidContentLengthException(typeof(FlashCardQuestion), MaxLen, value.Length);
 
             Value = value;
