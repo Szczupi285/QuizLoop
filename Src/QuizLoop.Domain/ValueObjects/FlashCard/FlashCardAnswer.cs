@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuizLoop.Domain.ValueObjects.FlashCard
 {
-    internal class FlashCardAnswer
+    public sealed record FlashCardAnswer
     {
         public string Value { get; }
         private const ushort MaxLen = 150;

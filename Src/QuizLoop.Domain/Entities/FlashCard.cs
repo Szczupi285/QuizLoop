@@ -7,10 +7,10 @@ namespace QuizLoop.Domain.Entities
 {
     public class FlashCard
     {
-        EntityId Id { get; }
-        FlashCardQuestion Question { get; }
-        FlashCardAnswer Answer { get; }
-        DifficultyEnum Difficulty { get; private set; }
+        public EntityId Id { get; }
+        public FlashCardQuestion Question { get; }
+        public FlashCardAnswer Answer { get; }
+        public DifficultyEnum Difficulty { get; private set; }
         // to do
         //public Category Category { get; private set; }
 
