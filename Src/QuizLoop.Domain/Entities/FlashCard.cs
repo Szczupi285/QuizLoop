@@ -8,8 +8,8 @@ namespace QuizLoop.Domain.Entities
     {
         EntityId Id { get; }
         FlashCardQuestion Question { get; }
+        FlashCardAnswer Answer { get; }
         // to do
-        //Answer answer { get; }
         //public Difficulty Difficulty { get; private set; }
         //public Category Category { get; private set; }
 

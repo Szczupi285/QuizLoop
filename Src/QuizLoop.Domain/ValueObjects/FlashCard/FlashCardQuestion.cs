@@ -11,7 +11,7 @@ namespace QuizLoop.Domain.ValueObjects.FlashCard
     public sealed record FlashCardQuestion
     {
         public string Value { get; }
-        private const ushort MaxLen = 200;
+        private const ushort MaxLen = 250;
 
         public FlashCardQuestion(string value)
         {
