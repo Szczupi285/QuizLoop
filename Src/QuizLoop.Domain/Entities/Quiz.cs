@@ -16,6 +16,7 @@ namespace QuizLoop.Domain.Entities
             {
                 if (value is null || value.Count != 4)
                     throw new InvalidNumberOfQuizAnswersException();
+
                 // check if there is exactly one correct QuizAnswer
                 else if (value.Count(qa => qa.IsCorrect) != 1)
                     throw new InvalidNumberOfCorrectQuizAnswersException();
@@ -24,7 +25,14 @@ namespace QuizLoop.Domain.Entities
         public DifficultyEnum Difficulty { get; private set; }
         public Category Category { get; private set; }
 
-
+        public Quiz(EntityId id, Question question, List<QuizAnswer> answers, DifficultyEnum difficulty, Category category)
+        {
+            Id = id;
+            Question = question;
+            Answers = answers;
+            Difficulty = difficulty;
+            Category = category;
+        }
 
         public void SetDifficulty(DifficultyEnum difficulty) => Difficulty = difficulty;
         public void SetCategory(string category) => Category = category;
