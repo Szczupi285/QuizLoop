@@ -17,4 +17,3 @@ namespace QuizLoop.Domain.ValueObjects.Shared
         public static implicit operator EntityId(Guid Id) => new(Id);
     }
 }
-}

@@ -22,6 +22,7 @@ namespace QuizLoop.Domain.Entities
                     throw new InvalidNumberOfCorrectQuizAnswersException();
             }
         }
+
         public DifficultyEnum Difficulty { get; private set; }
         public Category Category { get; private set; }
 
@@ -35,6 +36,7 @@ namespace QuizLoop.Domain.Entities
         }
 
         public void SetDifficulty(DifficultyEnum difficulty) => Difficulty = difficulty;
+
         public void SetCategory(string category) => Category = category;
     }
 }
