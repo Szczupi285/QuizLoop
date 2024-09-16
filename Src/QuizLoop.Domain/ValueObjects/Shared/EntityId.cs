@@ -10,7 +10,6 @@ namespace QuizLoop.Domain.ValueObjects.Shared
     public sealed record EntityId
     {
         public Guid Value { get; }
-
         public EntityId(Guid value)
         {
             if (value == Guid.Empty)

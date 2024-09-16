@@ -22,9 +22,9 @@ namespace QuizLoop.Domain.ValueObjects.FlashCard
             Value = value;
         }
 
-        public static implicit operator string(FlashCardAnswer Answer) => Answer.Value;
+        public static implicit operator string(FlashCardAnswer answer) => answer.Value;
 
-        public static implicit operator FlashCardAnswer(string Answer) => new(Answer);
+        public static implicit operator FlashCardAnswer(string answer) => new(answer);
     }
 }
 }

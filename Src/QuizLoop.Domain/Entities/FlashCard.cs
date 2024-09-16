@@ -11,8 +11,7 @@ namespace QuizLoop.Domain.Entities
         public FlashCardQuestion Question { get; }
         public FlashCardAnswer Answer { get; }
         public DifficultyEnum Difficulty { get; private set; }
-        // to do
-        //public Category Category { get; private set; }
+        public Category Category { get; private set; }
 
 
     }
