@@ -1,13 +1,14 @@
-﻿using System.ComponentModel;
+﻿using QuizLoop.Domain.ValueObjects.FlashCard;
+using QuizLoop.Domain.ValueObjects.Shared;
+using System.ComponentModel;
 
 namespace QuizLoop.Domain.Entities
 {
     public class FlashCard
     {
-        Guid Id { get; }
-
+        EntityId Id { get; }
+        FlashCardQuestion Question { get; }
         // to do
-        //Question question { get; }
         //Answer answer { get; }
         //public Difficulty Difficulty { get; private set; }
         //public Category Category { get; private set; }
