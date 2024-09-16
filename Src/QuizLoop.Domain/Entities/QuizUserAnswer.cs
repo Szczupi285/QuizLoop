@@ -8,15 +8,15 @@ namespace QuizLoop.Domain.Entities
         public EntityId Id { get; }
         public EntityId QuizId { get; }
         public EntityId UserID { get; }
-        public bool DidAnsweredCorrectly { get; }
+        public bool DidAnswerCorrectly { get; }
         public DateTime DateOfAnswer { get; }
 
-        public QuizUserAnswer(EntityId id, EntityId quizId, EntityId userID, bool didAnsweredCorrectly, IDateTimeProvider dateTimeProvider)
+        public QuizUserAnswer(EntityId id, EntityId quizId, EntityId userID, bool didAnswerCorrectly, IDateTimeProvider dateTimeProvider)
         {
             Id = id;
             QuizId = quizId;
             UserID = userID;
-            DidAnsweredCorrectly = didAnsweredCorrectly;
+            DidAnswerCorrectly = didAnswerCorrectly;
             DateOfAnswer = dateTimeProvider.UtcNow();
         }
     }
