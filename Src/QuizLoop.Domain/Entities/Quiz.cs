@@ -12,6 +12,23 @@ namespace QuizLoop.Domain.Entities
         // user can rate quiz positivly or negativly
         public Dictionary<EntityId, bool> UserRating { get; set; }
 
+        public double RatingPercentage
+        {
+            get
+            {
+                int positiveRating = 0;
+                int negativeRating = 0;
+                foreach (var item in UserRating)
+                {
+                    if (item.Value)
+                        positiveRating++;
+                    else
+                        negativeRating++;
+                }
+                return positiveRating / (double)negativeRating;
+            }
+        }
+
         private List<QuizAnswer> _answers;
 
         public List<QuizAnswer> Answers
@@ -62,6 +79,16 @@ namespace QuizLoop.Domain.Entities
         {
             if (!UserRating.TryAdd(userId, false))
                 UserRating[userId] = false;
+        }
+
+        public bool AnswerQuestion(User user, EntityId QuizAnswerId)
+        {
+            if (Answers.First(a => a.Id == QuizAnswerId).IsCorrect)
+            {
+                user.AnswerQuestionCorrectly(Difficulty);
+                return true;
+            }
+            return false;
         }
     }
 }
