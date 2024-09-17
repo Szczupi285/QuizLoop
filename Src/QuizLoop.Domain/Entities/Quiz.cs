@@ -9,17 +9,21 @@ namespace QuizLoop.Domain.Entities
         public EntityId Id { get; }
         public Question Question { get; }
 
+        private List<QuizAnswer> _answers;
+
         public List<QuizAnswer> Answers
         {
-            get => Answers;
+            get => _answers;
             set
             {
                 if (value is null || value.Count != 4)
                     throw new InvalidNumberOfQuizAnswersException();
 
                 // check if there is exactly one correct QuizAnswer
-                else if (value.Count(qa => qa.IsCorrect) != 1)
+                if (value.Count(qa => qa.IsCorrect) != 1)
                     throw new InvalidNumberOfCorrectQuizAnswersException();
+
+                _answers = value;
             }
         }
 
@@ -28,9 +32,14 @@ namespace QuizLoop.Domain.Entities
 
         public Quiz(EntityId id, Question question, List<QuizAnswer> answers, DifficultyEnum difficulty, Category category)
         {
+            if (answers is null || answers.Count != 4)
+                throw new InvalidNumberOfQuizAnswersException();
+            else if (answers.Count(qa => qa.IsCorrect) != 1)
+                throw new InvalidNumberOfCorrectQuizAnswersException();
+
             Id = id;
             Question = question;
-            Answers = answers;
+            _answers = answers;
             Difficulty = difficulty;
             Category = category;
         }
