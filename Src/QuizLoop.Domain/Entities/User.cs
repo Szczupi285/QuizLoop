@@ -13,7 +13,7 @@ namespace QuizLoop.Domain.Entities
         public EntityId UserId { get; }
         public string Username { get; }
         public int Points { get; private set; }
-        // public List<Achivements> {get; private set; }
+        public List<Achivement> Achivements { get; private set; }
 
         public User(EntityId userId, string username, int points)
         {
