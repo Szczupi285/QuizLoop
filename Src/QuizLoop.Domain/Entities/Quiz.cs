@@ -9,6 +9,9 @@ namespace QuizLoop.Domain.Entities
         public EntityId Id { get; }
         public Question Question { get; }
 
+        // user can rate quiz positivly or negativly
+        public Dictionary<EntityId, bool> UserRating { get; set; }
+
         private List<QuizAnswer> _answers;
 
         public List<QuizAnswer> Answers
@@ -30,7 +33,7 @@ namespace QuizLoop.Domain.Entities
         public DifficultyEnum Difficulty { get; private set; }
         public Category Category { get; private set; }
 
-        public Quiz(EntityId id, Question question, List<QuizAnswer> answers, DifficultyEnum difficulty, Category category)
+        public Quiz(EntityId id, Question question, List<QuizAnswer> answers, DifficultyEnum difficulty, Category category, Dictionary<EntityId, bool> userRating)
         {
             if (answers is null || answers.Count != 4)
                 throw new InvalidNumberOfQuizAnswersException();
@@ -42,10 +45,23 @@ namespace QuizLoop.Domain.Entities
             _answers = answers;
             Difficulty = difficulty;
             Category = category;
+            UserRating = userRating;
         }
 
         public void SetDifficulty(DifficultyEnum difficulty) => Difficulty = difficulty;
 
         public void SetCategory(string category) => Category = category;
+
+        public void RatePositivly(EntityId userId)
+        {
+            if (!UserRating.TryAdd(userId, true))
+                UserRating[userId] = true;
+        }
+
+        public void RateNegativly(EntityId userId)
+        {
+            if (!UserRating.TryAdd(userId, false))
+                UserRating[userId] = false;
+        }
     }
 }
