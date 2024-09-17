@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace QuizLoop.Domain.UnitTests
 {
-    public class QuizAnswerUnitTests
+    public class AnswerUnitTests
     {
         [Fact]
         public void QuizAnswer_Null_ShouldThrowContentNullException()

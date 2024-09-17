@@ -1,24 +1,12 @@
-﻿using QuizLoop.Domain.Exceptions.Shared;
+﻿using QuizLoop.Domain.Abstractions;
+using QuizLoop.Domain.Exceptions.Shared;
 
 namespace QuizLoop.Domain.ValueObjects.FlashCard
 {
-    public sealed record Answer
+    public sealed record Answer : AbstractContent
     {
-        public string Value { get; }
-        private const ushort MaxLen = 150;
-
-        public Answer(string value)
-        {
-            if (string.IsNullOrEmpty(value))
-                throw new ContentNullOrEmptyException(typeof(Answer));
-            else if (value.Length > MaxLen)
-                throw new InvalidContentLengthException(typeof(Answer), MaxLen, value.Length);
-
-            Value = value;
-        }
-
-        public static implicit operator string(Answer answer) => answer.Value;
-
+        protected override ushort MaxLen => 150;
+        public Answer(string value) : base(value) { }
         public static implicit operator Answer(string answer) => new(answer);
     }
 }
