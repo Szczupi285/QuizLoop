@@ -20,21 +20,21 @@ namespace QuizLoop.Domain.UnitTests
         [Fact]
         public void Category_Empty_ShouldThrowContentNullException()
         {
-            Assert.Throws<ContentNullOrEmptyException>(() => new Answer(""));
+            Assert.Throws<ContentNullOrEmptyException>(() => new Category(""));
         }
 
         [Fact]
         public void Category_TooLongContent_ShouldThrowInvalidContentLengthException()
         {
             string a = new string('a', 51);
-            Assert.Throws<InvalidContentLengthException>(() => new Answer(a));
+            Assert.Throws<InvalidContentLengthException>(() => new Category(a));
         }
 
         [Fact]
         public void Category_ValidContent_ShouldThrowInvalidContentLengthException()
         {
             string a = new string('a', 50);
-            new Answer(a);
+            new Category(a);
         }
     }
 }
