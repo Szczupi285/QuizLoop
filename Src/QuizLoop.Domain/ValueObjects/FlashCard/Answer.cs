@@ -10,7 +10,7 @@ namespace QuizLoop.Domain.ValueObjects.FlashCard
         public Answer(string value)
         {
             if (string.IsNullOrEmpty(value))
-                throw new ContentNullException(typeof(Answer));
+                throw new ContentNullOrEmptyException(typeof(Answer));
             else if (value.Length > MaxLen)
                 throw new InvalidContentLengthException(typeof(Answer), MaxLen, value.Length);
 

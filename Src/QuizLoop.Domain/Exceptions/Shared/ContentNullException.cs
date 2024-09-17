@@ -2,9 +2,9 @@
 
 namespace QuizLoop.Domain.Exceptions.Shared
 {
-    public class ContentNullException : QuizLoopException
+    public class ContentNullOrEmptyException : QuizLoopException
     {
-        public ContentNullException(Type contentType) : base($"{contentType.Name} cannot be null")
+        public ContentNullOrEmptyException(Type contentType) : base($"{contentType.Name} cannot be null or empty")
         {
         }
     }

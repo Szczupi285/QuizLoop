@@ -10,7 +10,7 @@ namespace QuizLoop.Domain.ValueObjects.Shared
         public Category(string value)
         {
             if (string.IsNullOrEmpty(value))
-                throw new ContentNullException(typeof(Category));
+                throw new ContentNullOrEmptyException(typeof(Category));
             else if (value.Length > MaxLen)
                 throw new InvalidContentLengthException(typeof(Category), MaxLen, value.Length);
 

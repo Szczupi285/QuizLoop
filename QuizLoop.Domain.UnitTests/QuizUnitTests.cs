@@ -1,5 +1,7 @@
 using QuizLoop.Domain.Entities;
 using QuizLoop.Domain.Exceptions.Quiz;
+using QuizLoop.Domain.Exceptions.Shared;
+using QuizLoop.Domain.ValueObjects.FlashCard;
 
 namespace QuizLoop.Domain.UnitTests
 {
@@ -122,6 +124,43 @@ namespace QuizLoop.Domain.UnitTests
                     new List<QuizAnswer>() { QuizAnswer2, QuizAnswer3, QuizAnswer4, quizAnswer5 },
                     Consts.DifficultyEnum.Easy,
                     "Math"));
+        }
+
+        [Fact]
+        public void Quiz_ValidInput_ShouldNotThrowException()
+        {
+            new Quiz(
+                Guid.NewGuid(),
+                "Question",
+                new List<QuizAnswer>() { QuizAnswer1, QuizAnswer2, QuizAnswer3, QuizAnswer4 },
+                Consts.DifficultyEnum.Easy,
+                "Math");
+        }
+
+        [Fact]
+        public void QuizAnswer_Null_ShouldThrowContentNullException()
+        {
+            Assert.Throws<ContentNullOrEmptyException>(() => new Answer(null));
+        }
+
+        [Fact]
+        public void QuizAnswer_Empty_ShouldThrowContentNullException()
+        {
+            Assert.Throws<ContentNullOrEmptyException>(() => new Answer(""));
+        }
+
+        [Fact]
+        public void QuizAnswer_TooLongContent_ShouldThrowInvalidContentLengthException()
+        {
+            string a = new string('a', 151);
+            Assert.Throws<InvalidContentLengthException>(() => new Answer(a));
+        }
+
+        [Fact]
+        public void QuizAnswer_ValidContent_ShouldThrowInvalidContentLengthException()
+        {
+            string a = new string('a', 150);
+            new Answer(a);
         }
     }
 }

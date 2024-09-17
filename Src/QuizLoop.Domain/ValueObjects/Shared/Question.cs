@@ -10,7 +10,7 @@ namespace QuizLoop.Domain.ValueObjects.Shared
         public Question(string value)
         {
             if (string.IsNullOrEmpty(value))
-                throw new ContentNullException(typeof(Question));
+                throw new ContentNullOrEmptyException(typeof(Question));
             else if (value.Length > MaxLen)
                 throw new InvalidContentLengthException(typeof(Question), MaxLen, value.Length);
 
