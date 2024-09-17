@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizLoop.Infrastructure", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{DE2A6341-A1D7-4E3C-A2CF-6F6DEE1FECCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizLoop.Domain.UnitTests", "..\..\QuizLoop.Domain.UnitTests\QuizLoop.Domain.UnitTests.csproj", "{2BB108EE-C247-4834-A4EB-161B7FE54FE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{A24FB227-173C-4B2B-B949-3A68520A631B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A24FB227-173C-4B2B-B949-3A68520A631B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A24FB227-173C-4B2B-B949-3A68520A631B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB108EE-C247-4834-A4EB-161B7FE54FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB108EE-C247-4834-A4EB-161B7FE54FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB108EE-C247-4834-A4EB-161B7FE54FE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB108EE-C247-4834-A4EB-161B7FE54FE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

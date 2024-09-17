@@ -8,11 +8,11 @@ namespace QuizLoop.Domain.Entities
     {
         public EntityId Id { get; }
         public Question Question { get; }
-        public FlashCardAnswer Answer { get; }
+        public Answer Answer { get; }
         public DifficultyEnum Difficulty { get; private set; }
         public Category Category { get; private set; }
 
-        public FlashCard(EntityId id, Question question, FlashCardAnswer answer, DifficultyEnum difficulty, Category category)
+        public FlashCard(EntityId id, Question question, Answer answer, DifficultyEnum difficulty, Category category)
         {
             Id = id;
             Question = question;
@@ -22,6 +22,7 @@ namespace QuizLoop.Domain.Entities
         }
 
         public void SetDifficulty(DifficultyEnum difficulty) => Difficulty = difficulty;
-        public void SetCategory(string category ) => Category = category;
+
+        public void SetCategory(string category) => Category = category;
     }
 }

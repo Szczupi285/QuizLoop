@@ -1,10 +1,11 @@
-﻿using QuizLoop.Domain.ValueObjects.Shared;
+﻿using QuizLoop.Domain.ValueObjects.FlashCard;
+using QuizLoop.Domain.ValueObjects.Shared;
 
 namespace QuizLoop.Domain.Entities
 {
     public class QuizAnswer
     {
-        public QuizAnswer(EntityId id, QuizAnswer content, bool isCorrect)
+        public QuizAnswer(EntityId id, Answer content, bool isCorrect)
         {
             Id = id;
             Content = content;
@@ -12,7 +13,7 @@ namespace QuizLoop.Domain.Entities
         }
 
         public EntityId Id { get; set; }
-        public QuizAnswer Content { get; set; }
+        public Answer Content { get; set; }
         public bool IsCorrect { get; set; }
     }
 }
